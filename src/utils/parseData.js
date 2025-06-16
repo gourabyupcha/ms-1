@@ -1,4 +1,4 @@
-function transformServiceData(input) {
+function transformServiceData(input, uid) {
     return {
         title: input.serviceName || "Untitled Service",
         description: input.description || "",
@@ -18,15 +18,13 @@ function transformServiceData(input) {
                 ]
             }
         },
-        sellerId: "seller_" + input.username.toLowerCase(), // Simulated seller ID
+        sellerId: "seller_" + uid, // Simulated seller ID
         availability: {
             days: ["Fri", "Sat", "Sun"], // Placeholder - no availability in input
             timeSlots: ["10:00-18:00"]   // Placeholder
         },
         images: input.portfolio?.flatMap(p => p.media?.map(m => m.url)) || [],
         tags: input.searchTags || [],
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString()
     };
 }
 
