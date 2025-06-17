@@ -21,7 +21,7 @@ app.use(express.json());
 app.use(rateLimiter);
 
 // ⚡ Option 1: Apply cache to all GET routes under /api/v1
-app.use('/api/v1', cache('v1', 3000), routes);
+app.use('/', routes);
 
 // app.use('/api/v1', routes);
 // app.use(errorHandler); // Custom error handling middleware
