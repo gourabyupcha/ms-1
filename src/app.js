@@ -6,7 +6,7 @@ const compression = require('compression');
 require('express-async-errors');
 
 const rateLimiter = require('./middleware/rateLimitter')
-const cache = require('./middleware/cache')
+// const cache = require('./middleware/cache')
 const routes = require('./routes/user.routes');
 const errorHandler = require('./middleware/errorHandler');
 
