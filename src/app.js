@@ -7,8 +7,10 @@ require('express-async-errors');
 
 const rateLimiter = require('./middleware/rateLimitter')
 // const cache = require('./middleware/cache')
-const routes = require('./routes/user.routes');
+const producerRoutes = require('./routes/user.producer.routes');
+const consumerRoutes = require('./routes/user.consumer.routes');
 const errorHandler = require('./middleware/errorHandler');
+const { authenticateFirebaseToken } = require('./middleware/authentication');
 
 const app = express();
 
@@ -21,7 +23,8 @@ app.use(express.json());
 app.use(rateLimiter);
 
 // ⚡ Option 1: Apply cache to all GET routes under /api/v1
-app.use('/', routes);
+app.use('/users/producer', producerRoutes);
+// app.use('/consumer', authenticateFirebaseToken, consumerRoutes);
 
 // app.use('/api/v1', routes);
 // app.use(errorHandler); // Custom error handling middleware

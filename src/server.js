@@ -4,7 +4,7 @@ const app = require('./app');
 const { redisClient } = require('./config/redisClient');
 const { connectToDatabase } = require('./config/mongo');
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 1111;
 
 const server = http.createServer(app);
 
