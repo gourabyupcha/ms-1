@@ -5,7 +5,7 @@ const fs = require('fs');
 exports.compressionLogic = async (buffer, originalName, options = {}) => {
   const {
     targetFormat = null, // null means auto-detect optimal format
-    quality = 85,
+    quality = 75,
     maxWidth = 1920,
     maxHeight = 1080,
     enableProgressive = true,
